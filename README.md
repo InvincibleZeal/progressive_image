@@ -2,16 +2,18 @@
 
 A flutter widget which progressively loads larger images using Low Quality Image Placeholders.
 
-<img src="https://i.imgur.com/gJUtww7.gif" height="400" style="border-radius: 10px;">
-<img src="https://i.imgur.com/Ei4ENjT.gif" height="400" style="border-radius: 10px;">
-<img src="https://i.imgur.com/BpgeKfv.gif" height="400" style="border-radius: 10px;">
+## Snapshots
+
+<img src="https://i.imgur.com/IXNRpoB.gif" height="400em" style="border-radius: 10px;margin: 0 5px;">
+<img src="https://i.imgur.com/lPN9Fss.gif" height="400em" style="border-radius: 10px;margin: 0 5px;">
+<img src="https://i.imgur.com/nhZwQuY.gif" height="400em" style="border-radius: 10px;margin: 0 5px;">
 
 ## Features
 
-* Displays Placeholder and Thumbnail image until the Original image loads.
+* Displays placeholder and thumbnail image until the target Image loads.
 * Smooth Fade-in animations for preventing immediate image popups on load.
-* Blur effect for low resolution thumbnails to prevent the pixelated view.
-* Effectively resolves Thumbnail images before the Original image starts to fetch for quick first impression.
+* Blur effect for low resolution thumbnail to prevent the pixelated view.
+* Effectively resolves thumbnail image before the target image starts to fetch for quick first impression.
 
 ## Installing
 
@@ -24,12 +26,12 @@ dependencies:
     progressive_image: ^1.0.0 
 ```
 
-* Getting the package via package manager
+* Run the following command to get packages:
 ```bash
 $ flutter packages get
 ```
 
-* Import the package:
+* Import the package in your project file:
 
 ```dart
 import 'package:progressive_image/progressive_image.dart';
