@@ -329,10 +329,26 @@ class _ProgressiveImageState extends State<ProgressiveImage> {
   /// Whether the [thumbnail] is displayed intact when the target [image] is fading in.
   bool _thumbnailDelay = true;
 
+  bool _disposed = false;
+
+  @override
+  void setState(void Function() fn) {
+    if (_disposed) {
+      return;
+    }
+    super.setState(fn);
+  }
+
   void _updateProgress(Progress progress) {
     setState(() {
       _status = progress;
     });
+  }
+
+  @override
+  void dispose() {
+    _disposed = true;
+    super.dispose();
   }
 
   @override
