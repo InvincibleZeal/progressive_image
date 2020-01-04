@@ -1,6 +1,6 @@
 # Progressive Image
 
-A flutter widget which progressively loads larger images using Low Quality Image Placeholders.
+A flutter widget which progressively loads large images using Low Quality Image Placeholders.
 
 ## Snapshots
 
@@ -10,28 +10,29 @@ A flutter widget which progressively loads larger images using Low Quality Image
 
 ## Features
 
-* Displays placeholder and thumbnail image until the target Image loads.
-* Smooth Fade-in animations for preventing immediate image popups on load.
-* Blur effect for low resolution thumbnail to prevent the pixelated view.
-* Effectively resolves thumbnail image before the target image starts to fetch for quick first impression.
+- Displays placeholder and thumbnail image until the target Image loads.
+- Smooth Fade-in animations for preventing immediate image popups on load.
+- Blur effect for low resolution thumbnail to prevent the pixelated view.
+- Effectively resolves thumbnail image before the target image starts to fetch for quick first impression.
 
 ## Installing
 
 Following steps will help you add this library as a dependency in your flutter project.
 
-* In the `pubspec.yaml` file in the root of your project
+- In the `pubspec.yaml` file in the root of your project
 
 ```yaml
 dependencies:
-    progressive_image: ^1.0.0 
+  progressive_image: ^1.0.1
 ```
 
-* Run the following command to get packages:
+- Run the following command to get packages:
+
 ```bash
 $ flutter packages get
 ```
 
-* Import the package in your project file:
+- Import the package in your project file:
 
 ```dart
 import 'package:progressive_image/progressive_image.dart';
@@ -68,10 +69,10 @@ class ProgressiveImageExample extends StatelessWidget {
         return Container(
             child: ProgressiveImage(
                 placeholder: AssetImage('assets/placeholder.jpg'),
-                // size: 1.87KB 
-                thumbnail: NetworkImage('https://i.imgur.com/7XL923M.jpg'), 
-                // size: 1.29MB 
-                image: NetworkImage('https://i.imgur.com/xVS07vQ.jpg'),     
+                // size: 1.87KB
+                thumbnail: NetworkImage('https://i.imgur.com/7XL923M.jpg'),
+                // size: 1.29MB
+                image: NetworkImage('https://i.imgur.com/xVS07vQ.jpg'),
                 height: 300,
                 width: 500,
             ),

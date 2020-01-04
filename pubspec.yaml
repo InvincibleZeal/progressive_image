@@ -1,6 +1,6 @@
 name: progressive_image
 description: A flutter widget which progressively loads larger images using Low Quality Image Placeholders.
-version: 1.0.0
+version: 1.0.1
 author: Ritesh Ganjewala <ritesh.ganjewala17@gmail.com>
 homepage: https://github.com/InvincibleZeal/progressive_image
 

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 
 class ProgressiveImageExample extends StatelessWidget {
   // Image Credit - https://unsplash.com/@tjholowaychuk
-  Widget example1 = ProgressiveImage(
+  final Widget example1 = ProgressiveImage(
     placeholder: AssetImage('assets/images/placeholder.jpg'),
     thumbnail: NetworkImage('https://i.imgur.com/eOQL4jg.jpg'), // 64x36
     image: NetworkImage('https://i.imgur.com/mDQ3Qbi.jpg'), // 3842x2160
@@ -31,7 +31,7 @@ class ProgressiveImageExample extends StatelessWidget {
   );
 
   // Image Credit - https://unsplash.com/@jonathangallegos
-  Widget example2 = ProgressiveImage.assetNetwork(
+  final Widget example2 = ProgressiveImage.assetNetwork(
     placeholder: 'assets/images/placeholder.gif',
     thumbnail: 'https://i.imgur.com/7XL923M.jpg', // 64x43
     image: 'https://i.imgur.com/xVS07vQ.jpg', // 3240x2160
@@ -41,7 +41,7 @@ class ProgressiveImageExample extends StatelessWidget {
   );
 
   // Image Credit - https://unsplash.com/@leonel806
-  Widget example3 = ProgressiveImage.memoryNetwork(
+  final Widget example3 = ProgressiveImage.memoryNetwork(
     placeholder: kTransparentImage,
     thumbnail: 'https://i.imgur.com/vz6P3pD.jpg', // 64x43
     image: 'https://i.imgur.com/GL54OhH.jpg', // 3240x2160
@@ -68,10 +68,10 @@ class ProgressiveImageExample extends StatelessWidget {
       child: Container(
         child: Column(
           children: <Widget>[
-            // _text('Example 1'),
-            // example1,
-            // _text('Example 2'),
-            // example2,
+            _text('Example 1'),
+            example1,
+            _text('Example 2'),
+            example2,
             _text('Example 3'),
             example3,
             _text('End'),
