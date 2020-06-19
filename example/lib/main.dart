@@ -49,11 +49,26 @@ class ProgressiveImageExample extends StatelessWidget {
     width: 500,
   );
 
+  // Image Credit - https://unsplash.com/@robertbye
+  final Widget example4 = ProgressiveImage.custom(
+    placeholderBuilder: (context) {
+      return Center(child: Container(width: 20, height: 20, color: Colors.red,),);
+    },
+    thumbnail: NetworkImage('https://unsplash.com/photos/g2-lALqauao/download?w=640'), // 640x479
+    image: NetworkImage('https://unsplash.com/photos/g2-lALqauao/download'), // 3057x1797
+    width: 500,
+    height: 300,
+    fit: BoxFit.cover,
+  );
+
+  
+
   Widget _text(String text) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 20),
       child: Text(
         text,
+        textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w500,
@@ -64,20 +79,18 @@ class ProgressiveImageExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        child: Column(
-          children: <Widget>[
-            _text('Example 1'),
-            example1,
-            _text('Example 2'),
-            example2,
-            _text('Example 3'),
-            example3,
-            _text('End'),
-          ],
-        ),
-      ),
+    return ListView(
+      children: <Widget>[
+        _text('Example 1'),
+        example1,
+        _text('Example 2'),
+        example2,
+        _text('Example 3'),
+        example3,
+        _text('Example 4'),
+        example4,
+        _text('End'),
+      ],
     );
   }
 }
