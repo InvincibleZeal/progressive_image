@@ -91,6 +91,51 @@ class ProgressiveImage extends StatefulWidget {
         assert(repeat != null),
         assert(matchTextDirection != null),
         super(key: key);
+  
+  /// Creates a widget that gracefully fades from a blurred `thumbnail` to the target `image`.
+  /// `placeholderBuilder` is displayed initially until the `thumbnail` loads.
+  ///
+  /// Sequence of occurrence: `placeholderBuilder` > `thumbnail` > `image`
+  ///
+  /// The [placeholderBuilder], [thumbnail], [image], [width], [height], [fit], [fadeDuration],
+  /// [alignment], [repeat], and [matchTextDirection] arguments must not be null.
+  ///
+  /// If [excludeFromSemantics] is true, then [imageSemanticLabel] will be ignored.
+  ///
+  /// ```dart
+  /// ProgressiveImage(
+  ///   placeholderBuilder: (BuildContext context) => Center(child: Container(color: Colors.red, width: 50, height: 50)),
+  ///   thumbnail: NetworkImage('https://backend.example.com/thumbnail.png'),
+  ///   image: NetworkImage('https://backend.example.com/image.png'),
+  ///   height: 300,
+  ///   width: 500,
+  /// );
+  /// ```
+  ProgressiveImage.custom({
+    Key key,
+    @required this.placeholderBuilder,
+    @required this.thumbnail,
+    @required this.image,
+    @required this.width,
+    @required this.height,
+    this.fit = BoxFit.fill,
+    this.blur = 20,
+    this.fadeDuration = const Duration(milliseconds: 500),
+    this.alignment = Alignment.center,
+    this.repeat = ImageRepeat.noRepeat,
+    this.matchTextDirection = false,
+    this.excludeFromSemantics = false,
+    this.imageSemanticLabel,
+  })  : assert(placeholderBuilder != null),
+        assert(thumbnail != null),
+        assert(image != null),
+        assert(width != null),
+        assert(height != null),
+        assert(fadeDuration != null),
+        assert(alignment != null),
+        assert(repeat != null),
+        assert(matchTextDirection != null),
+        super(key: key);
 
   /// Creates a widget that uses a placeholder image stored in memory while
   /// loading the `thumbnail` and target `image` from the network.
@@ -224,7 +269,7 @@ class ProgressiveImage extends StatefulWidget {
         super(key: key);
 
   /// Image displayed initially while the `thumbnail` is loading.
-  final ImageProvider placeholder;
+  ImageProvider placeholder;
 
   /// The blurred thumbnail that is displayed while the target `image` is loading.
   final ImageProvider thumbnail;
@@ -313,6 +358,10 @@ class ProgressiveImage extends StatefulWidget {
   /// This description will be used both while the `placeholder` is shown and
   /// once the image has loaded.
   final String imageSemanticLabel;
+
+  /// A builder that is displayed in place of `placeholder`
+  WidgetBuilder placeholderBuilder;
+
   @override
   _ProgressiveImageState createState() => _ProgressiveImageState();
 }
@@ -405,7 +454,7 @@ class _ProgressiveImageState extends State<ProgressiveImage> {
                     (_status == Progress.ThumbnailLoaded && _placeholderDelay)
                 ? 1.0
                 : 0.0,
-            child: _image(image: widget.placeholder)),
+            child: (widget.placeholder == null) ? widget.placeholderBuilder?.call(context) : _image(image: widget.placeholder)),
         AnimatedOpacity(
           // Fade out thumbnail only after the target image fades in completely
           opacity: _status == Progress.ThumbnailLoaded ||
