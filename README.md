@@ -42,7 +42,7 @@ import 'package:progressive_image/progressive_image.dart';
 
 ## Usage
 
-For a more detailed look at how to use this library, there is a sweet project in the `example` directory and various examples can be found [here](/example/README.md)
+For a more detailed look at how to use this library, there is a sweet project in the `example` directory and various examples can be found [here](example/README.md)
 
 A simple example usage of the `ProgressiveImage` widget is shown below:
 
