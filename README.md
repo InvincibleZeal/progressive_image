@@ -4,9 +4,10 @@ A flutter widget which progressively loads large images using Low Quality Image 
 
 ## Snapshots
 
-<img src="https://i.imgur.com/IXNRpoB.gif" height="400em" style="border-radius: 10px;margin: 0 5px;">
-<img src="https://i.imgur.com/lPN9Fss.gif" height="400em" style="border-radius: 10px;margin: 0 5px;">
-<img src="https://i.imgur.com/nhZwQuY.gif" height="400em" style="border-radius: 10px;margin: 0 5px;">
+<p align="middle">
+  <img src="https://i.imgur.com/hKbYIQ6.gif" width="300" alt="" />
+  <img src="https://i.imgur.com/sr7N8zi.gif" width="300" alt="" />
+</p>
 
 ## Features
 

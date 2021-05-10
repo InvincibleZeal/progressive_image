@@ -135,12 +135,12 @@ class ProgressiveImageExample extends StatelessWidget {
     return ListView(
       padding: EdgeInsets.fromLTRB(10, 30, 10, 0),
       children: <Widget>[
-        // example1,
-        // _text('Example 1  -  with Placeholder Image'),
-        // example2,
-        // _text('Example 2  -  with Placeholder GIF'),
-        // example3,
-        // _text('Example 3  -  with kTransparentImage'),
+        example1,
+        _text('Example 1  -  with Placeholder Image'),
+        example2,
+        _text('Example 2  -  with Placeholder GIF'),
+        example3,
+        _text('Example 3  -  with kTransparentImage'),
         example4,
         _text('Example 4  -  with Placeholder Widget'),
         _extra('Some other content'),
