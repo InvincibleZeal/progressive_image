@@ -1,5 +1,5 @@
 name: progressive_image_example
-description: A new Flutter project.
+description: Flutter project to provide examples for the flutter progressive_image package.
 publish_to: none
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -24,6 +24,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.3
   transparent_image: ^2.0.0
+  google_fonts: ^2.0.0
   progressive_image:
     path: ../
 

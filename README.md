@@ -14,6 +14,7 @@ A flutter widget which progressively loads large images using Low Quality Image 
 - Smooth Fade-in animations for preventing immediate image popups on load.
 - Blur effect for low resolution thumbnail to prevent the pixelated view.
 - Effectively resolves thumbnail image before the target image starts to fetch for quick first impression.
+- Placeholder widgets instead of placeholder images can now be added in `v2.0.0`
 
 ## Installing
 
@@ -23,7 +24,7 @@ Following steps will help you add this library as a dependency in your flutter p
 
 ```yaml
 dependencies:
-  progressive_image: ^1.0.1
+  progressive_image: ^2.0.0
 ```
 
 - Run the following command to get packages:

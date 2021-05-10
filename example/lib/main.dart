@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:progressive_image/progressive_image.dart';
 import 'package:transparent_image/transparent_image.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,9 +11,23 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
+      theme: ThemeData(
+        fontFamily: GoogleFonts.poppins(fontWeight: FontWeight.w700).fontFamily,
+        brightness: Brightness.light,
+      ),
       home: Scaffold(
-        appBar: AppBar(title: Text('Progressive Image Examples')),
+        appBar: AppBar(
+          centerTitle: true,
+          elevation: 10,
+          title: Text(
+            'Progressive Image Examples',
+            style: TextStyle(
+              color: Color(0xFF0556F3),
+              fontSize: 20.0,
+            ),
+          ),
+          backgroundColor: Colors.white,
+        ),
         body: ProgressiveImageExample(),
       ),
     );
@@ -25,7 +40,7 @@ class ProgressiveImageExample extends StatelessWidget {
         placeholder: AssetImage('assets/images/placeholder.jpg'),
         thumbnail: NetworkImage('https://i.imgur.com/eOQL4jg.jpg'), // 64x36
         image: NetworkImage('https://i.imgur.com/mDQ3Qbi.jpg'), // 3842x2160
-        height: 300,
+        height: 250,
         width: 500,
         fit: BoxFit.cover,
       );
@@ -40,44 +55,76 @@ class ProgressiveImageExample extends StatelessWidget {
         fit: BoxFit.cover,
       );
 
-  // Image Credit - https://unsplash.com/@leonel806
+  // Image Credit - https://unsplash.com/@little_klein
   Widget get example3 => ProgressiveImage.memoryNetwork(
         placeholder: kTransparentImage,
-        thumbnail: 'https://i.imgur.com/vz6P3pD.jpg', // 64x43
-        image: 'https://i.imgur.com/GL54OhH.jpg', // 3240x2160
+        thumbnail: 'https://i.imgur.com/zzlvBm5.jpg', // 64x43
+        image: 'https://i.imgur.com/7LxOVQf.jpg', // 3240x2160
         height: 250,
         width: 500,
       );
 
-  // Image Credit - https://unsplash.com/@robertbye
+  // Image Credit - https://unsplash.com/@marcelalaskoski
   Widget get example4 => ProgressiveImage.custom(
-        placeholderBuilder: (context) {
-          return Center(
-            child: Container(
-              width: 20,
-              height: 20,
-              color: Colors.red,
-            ),
-          );
-        },
-        thumbnail: NetworkImage(
-            'https://unsplash.com/photos/g2-lALqauao/download?w=640'), // 640x479
-        image: NetworkImage(
-            'https://unsplash.com/photos/g2-lALqauao/download'), // 3057x1797
+        placeholderBuilder: (BuildContext context) => _customWidget,
+        thumbnail: NetworkImage('https://i.imgur.com/4WRfwXm.jpg'), // 64x43
+        image: NetworkImage('https://i.imgur.com/0NnZINx.jpg'), // 3240x2160
+        height: 250,
         width: 500,
-        height: 300,
         fit: BoxFit.cover,
       );
 
   Widget _text(String text) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 20),
+    return Container(
+      decoration: BoxDecoration(
+        color: Color(0xFF0556F3),
+        borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
+      ),
+      padding: EdgeInsets.symmetric(vertical: 10),
+      margin: EdgeInsets.only(bottom: 20),
       child: Text(
         text,
         textAlign: TextAlign.center,
         style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w500,
+          fontSize: 16,
+          color: Colors.white,
+        ),
+      ),
+    );
+  }
+
+  Widget get _customWidget => Container(
+        width: 500,
+        height: 250,
+        color: Color(0xFF6501E5),
+        child: Center(
+          child: Text(
+            "Custom Placeholder",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      );
+
+  Widget _extra(String text) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.grey.shade400,
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+      padding: EdgeInsets.symmetric(vertical: 10),
+      margin: EdgeInsets.only(bottom: 20),
+      height: 50,
+      child: Center(
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 16,
+            color: Colors.white,
+          ),
         ),
       ),
     );
@@ -86,16 +133,18 @@ class ProgressiveImageExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      padding: EdgeInsets.fromLTRB(10, 30, 10, 0),
       children: <Widget>[
-        _text('Example 1'),
-        example1,
-        _text('Example 2'),
-        example2,
-        _text('Example 3'),
-        example3,
-        _text('Example 4'),
+        // example1,
+        // _text('Example 1  -  with Placeholder Image'),
+        // example2,
+        // _text('Example 2  -  with Placeholder GIF'),
+        // example3,
+        // _text('Example 3  -  with kTransparentImage'),
         example4,
-        _text('End'),
+        _text('Example 4  -  with Placeholder Widget'),
+        _extra('Some other content'),
+        _extra('Some other content'),
       ],
     );
   }

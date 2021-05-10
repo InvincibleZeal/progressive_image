@@ -1,4 +1,11 @@
-# [v1.0.1]
+# [v2.0.0](https://pub.dev/packages/progressive_image/versions/2.0.0)
+
+**Flutter 2.0 support:**
+
+- Migrated the package to support flutter's null-safety. Thanks to [Aaqib Ismail](https://github.com/aaqibism)
+- Added ProgressiveImage.custom() constructor to add custom widgets instead of placeholder images. Thanks to [Gioele Pannetto](https://github.com/GioPan04)
+
+# [v1.0.1](https://pub.dev/packages/progressive_image/versions/1.0.1)
 
 **Merged Pull Requests:**
 

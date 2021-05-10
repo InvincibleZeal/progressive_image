@@ -84,43 +84,6 @@ class ProgressiveImage extends StatefulWidget {
   })  : placeholderBuilder = null,
         super(key: key);
 
-  /// Creates a widget that gracefully fades from a blurred `thumbnail` to the target `image`.
-  /// `placeholderBuilder` is displayed initially until the `thumbnail` loads.
-  ///
-  /// Sequence of occurrence: `placeholderBuilder` > `thumbnail` > `image`
-  ///
-  /// The [placeholderBuilder], [thumbnail], [image], [width], [height], [fit], [fadeDuration],
-  /// [alignment], [repeat], and [matchTextDirection] arguments must not be null.
-  ///
-  /// If [excludeFromSemantics] is true, then [imageSemanticLabel] will be ignored.
-  ///
-  /// ```dart
-  /// ProgressiveImage(
-  ///   placeholderBuilder: (BuildContext context) => Center(child: Container(color: Colors.red, width: 50, height: 50)),
-  ///   thumbnail: NetworkImage('https://backend.example.com/thumbnail.png'),
-  ///   image: NetworkImage('https://backend.example.com/image.png'),
-  ///   height: 300,
-  ///   width: 500,
-  /// );
-  /// ```
-  ProgressiveImage.custom({
-    Key? key,
-    required this.placeholderBuilder,
-    required this.thumbnail,
-    required this.image,
-    required this.width,
-    required this.height,
-    this.fit = BoxFit.fill,
-    this.blur = 20,
-    this.fadeDuration = const Duration(milliseconds: 500),
-    this.alignment = Alignment.center,
-    this.repeat = ImageRepeat.noRepeat,
-    this.matchTextDirection = false,
-    this.excludeFromSemantics = false,
-    this.imageSemanticLabel,
-  })  : placeholder = null,
-        super(key: key);
-
   /// Creates a widget that uses a placeholder image stored in memory while
   /// loading the `thumbnail` and target `image` from the network.
   ///
@@ -242,6 +205,43 @@ class ProgressiveImage extends StatefulWidget {
         thumbnail = NetworkImage(thumbnail),
         image = NetworkImage(image),
         placeholderBuilder = null,
+        super(key: key);
+
+  /// Creates a widget that gracefully fades from a blurred `thumbnail` to the target `image`.
+  /// `placeholderBuilder` is displayed initially until the `thumbnail` loads.
+  ///
+  /// Sequence of occurrence: `placeholderBuilder` > `thumbnail` > `image`
+  ///
+  /// The [placeholderBuilder], [thumbnail], [image], [width], [height], [fit], [fadeDuration],
+  /// [alignment], [repeat], and [matchTextDirection] arguments must not be null.
+  ///
+  /// If [excludeFromSemantics] is true, then [imageSemanticLabel] will be ignored.
+  ///
+  /// ```dart
+  /// ProgressiveImage(
+  ///   placeholderBuilder: (BuildContext context) => Center(child: Container(color: Colors.red, width: 50, height: 50)),
+  ///   thumbnail: NetworkImage('https://backend.example.com/thumbnail.png'),
+  ///   image: NetworkImage('https://backend.example.com/image.png'),
+  ///   height: 300,
+  ///   width: 500,
+  /// );
+  /// ```
+  ProgressiveImage.custom({
+    Key? key,
+    required this.placeholderBuilder,
+    required this.thumbnail,
+    required this.image,
+    required this.width,
+    required this.height,
+    this.fit = BoxFit.fill,
+    this.blur = 20,
+    this.fadeDuration = const Duration(milliseconds: 500),
+    this.alignment = Alignment.center,
+    this.repeat = ImageRepeat.noRepeat,
+    this.matchTextDirection = false,
+    this.excludeFromSemantics = false,
+    this.imageSemanticLabel,
+  })  : placeholder = null,
         super(key: key);
 
   /// Image displayed initially while the `thumbnail` is loading.
