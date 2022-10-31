@@ -80,6 +80,7 @@ class ProgressiveImage extends StatefulWidget {
     this.matchTextDirection = false,
     this.excludeFromSemantics = false,
     this.imageSemanticLabel,
+    this.onTargetImageLoaded,
   })  : placeholderBuilder = null,
         super(key: key);
 
@@ -138,6 +139,7 @@ class ProgressiveImage extends StatefulWidget {
     this.matchTextDirection = false,
     this.excludeFromSemantics = false,
     this.imageSemanticLabel,
+    this.onTargetImageLoaded,
   })  : placeholder = MemoryImage(placeholder, scale: placeholderScale),
         thumbnail = NetworkImage(thumbnail, scale: thumbnailScale),
         image = NetworkImage(image, scale: imageScale),
@@ -197,6 +199,7 @@ class ProgressiveImage extends StatefulWidget {
     this.matchTextDirection = false,
     this.excludeFromSemantics = false,
     this.imageSemanticLabel,
+    this.onTargetImageLoaded,
   })  : placeholder = placeholderScale != null
             ? ExactAssetImage(placeholder,
                 bundle: bundle, scale: placeholderScale)
@@ -240,6 +243,7 @@ class ProgressiveImage extends StatefulWidget {
     this.matchTextDirection = false,
     this.excludeFromSemantics = false,
     this.imageSemanticLabel,
+    this.onTargetImageLoaded,
   })  : placeholder = null,
         super(key: key);
 
@@ -337,6 +341,8 @@ class ProgressiveImage extends StatefulWidget {
   /// A builder that is displayed in place of `placeholder`
   final WidgetBuilder? placeholderBuilder;
 
+  final VoidCallback? onTargetImageLoaded;
+
   @override
   _ProgressiveImageState createState() => _ProgressiveImageState();
 }
@@ -376,6 +382,7 @@ class _ProgressiveImageState extends State<ProgressiveImage> {
         });
       });
       _updateProgress(Progress.TargetLoaded);
+      widget.onTargetImageLoaded?.call();
     });
 
     ImageStreamListener _thumbnailListener =
