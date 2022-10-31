@@ -2,7 +2,6 @@ library progressive_image;
 
 import 'dart:async';
 import 'dart:core';
-import 'dart:typed_data';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
