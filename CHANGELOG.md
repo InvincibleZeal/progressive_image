@@ -1,3 +1,9 @@
+# [v2.0.1](https://pub.dev/packages/progressive_image/versions/2.0.1)
+
+**Pub Score**
+
+- Removed redundant `dart:typed_data` import for improving pub points
+
 # [v2.0.0](https://pub.dev/packages/progressive_image/versions/2.0.0)
 
 **Flutter 2.0 support:**
